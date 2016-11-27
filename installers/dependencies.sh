@@ -33,7 +33,7 @@ echo -e "\e[0m"
 
 # installing packages
 echo -e "\e[96m[STEP 1/6] Installing Packages\e[90m"
-if sudo apt-get install bison libasound2-dev autoconf automake libtool python-dev swig python-pip -y ;
+if apt-get install bison libasound2-dev autoconf automake libtool python-dev swig python-pip -y ;
 then
     echo -e "\e[32m[STEP 1/6] Installing Packages | Done\e[0m"
 else
@@ -64,7 +64,7 @@ fi
 ./autogen.sh
 ./configure --enable-fixed
 make
-sudo make install
+make install
 echo -e "\e[32m[STEP 2/6] Installing sphinxbase | Done\e[0m"
 
 
@@ -90,7 +90,7 @@ fi
 ./autogen.sh
 ./configure
 make
-sudo make install
+make install
 echo -e "\e[32m[STEP 3/6] Installing pocketsphinx | Done\e[0m"
 
 
