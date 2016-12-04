@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 # Magic Mirror
-# Module: MMM-voice
+# Module: mmm-voice
 #
-# By fewieden https://github.com/fewieden/MMM-voice
+# By fewieden https://github.com/fewieden/mmm-voice
 # MIT Licensed.
 
 echo -e "\e[0m"
@@ -103,7 +103,7 @@ echo -e "\e[32m[STEP 4/6] Exporting paths |  Done\e[0m"
 
 # installing npm dependencies
 echo -e "\e[96m[STEP 5/6] Installing npm dependencies\e[90m"
-cd ~/MagicMirror/modules/MMM-voice
+cd ~/MagicMirror/modules/mmm-voice
 if npm install ;
 then
     echo -e "\e[32m[STEP 5/6] Installing npm dependencies | Done\e[0m"
@@ -115,13 +115,13 @@ fi
 
 # manipulating dependencies
 echo -e "\e[96m[STEP 6/6] Manipulating dependencies\e[90m"
-cd ~/MagicMirror/modules/MMM-voice/node_modules/pocketsphinx-continuous
+cd ~/MagicMirror/modules/mmm-voice/node_modules/pocketsphinx-continuous
 if sed \
 -e "/this.verbose = config.verbose;/ a\ this.microphone = config.microphone;" \
 -e "/-inmic/ i\ '-adcdev'," \
 -e "/-inmic/ i\ 'plughw:' \+ this.microphone," \
--e "/-lm/ a\ 'modules/MMM-voice/' \+" \
--e "/-dict/ a\ 'modules/MMM-voice/' \+" \
+-e "/-lm/ a\ 'modules/mmm-voice/' \+" \
+-e "/-dict/ a\ 'modules/mmm-voice/' \+" \
 index.js -i;
 then
     echo -e "\e[32m[STEP 6/6] Manipulating dependencies | Done\e[0m"
