@@ -5,7 +5,7 @@
  * MIT Licensed.
  */
 
-Module.register("MMM-voice",{
+Module.register("mmm-voice",{
 
     icon: "fa-microphone-slash",
     pulsing: true,
