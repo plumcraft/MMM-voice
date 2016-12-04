@@ -39,7 +39,7 @@ Module.register("mmm-voice",{
     },
 
     getStyles: function() {
-        return ["font-awesome.css", "MMM-voice.css"];
+        return ["font-awesome.css", "mmm-voice.css"];
     },
 
     getTranslations: function() {
