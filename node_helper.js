@@ -67,10 +67,10 @@ module.exports = NodeHelper.create({
     },
 
     checkFiles: function(){
-        console.log("MMM-voice: Checking files.");
-        fs.stat("modules/MMM-voice/words.json", (err, stats) => {
+        console.log("mmm-voice: Checking files.");
+        fs.stat("modules/mmm-voice/words.json", (err, stats) => {
             if(!err && stats.isFile()){
-                fs.readFile("modules/MMM-voice/words.json", "utf8", (err, data) => {
+                fs.readFile("modules/mmm-voice/words.json", "utf8", (err, data) => {
                     if(!err){
                         var words = JSON.parse(data).words;
                         if(this.arraysEqual(this.words, words)){
@@ -105,13 +105,13 @@ module.exports = NodeHelper.create({
     },
 
     generateDicLM: function(){
-        console.log("MMM-voice: Generating dictionairy and language model.");
+        console.log("mmm-voice: Generating dictionairy and language model.");
 
-        fs.writeFile("modules/MMM-voice/words.json", JSON.stringify({words: this.words}), (err) => {
+        fs.writeFile("modules/mmm-voice/words.json", JSON.stringify({words: this.words}), (err) => {
             if (err){
-                console.log("MMM-voice: Couldn't save words.json!");
+                console.log("mmm-voice: Couldn't save words.json!");
             } else {
-                console.log("MMM-voice: Saved words.json successfully.");
+                console.log("mmm-voice: Saved words.json successfully.");
             }
         });
 
@@ -119,8 +119,8 @@ module.exports = NodeHelper.create({
             if(err){
                 this.sendSocketNotification("ERROR", "Couldn't create necessary files!");
             } else {
-                fs.renameSync(filename + ".dic", "modules/MMM-voice/MMM-voice.dic");
-                fs.renameSync(filename + ".lm", "modules/MMM-voice/MMM-voice.lm");
+                fs.renameSync(filename + ".dic", "modules/mmm-voice/mmm-voice.dic");
+                fs.renameSync(filename + ".lm", "modules/mmm-voice/mmm-voice.lm");
 
                 this.startPocketsphinx();
 
@@ -133,10 +133,10 @@ module.exports = NodeHelper.create({
     },
 
     startPocketsphinx: function(){
-        console.log("MMM-voice: Starting pocketsphinx.");
+        console.log("mmm-voice: Starting pocketsphinx.");
         this.time = this.config.timeout * 1000;
         this.ps = new Psc({
-            setId: "MMM-voice",
+            setId: "mmm-voice",
             verbose: true,
             microphone: this.config.microphone
         });
@@ -183,13 +183,13 @@ module.exports = NodeHelper.create({
 
         if(this.config.debug){
             this.ps.on("debug", (data) => {
-                fs.appendFile("modules/MMM-voice/debug.log", data);
+                fs.appendFile("modules/mmm-voice/debug.log", data);
             });
         }
 
         this.ps.on("error", (error) => {
             if(error){
-                fs.appendFile("modules/MMM-voice/error.log", error);
+                fs.appendFile("modules/mmm-voice/error.log", error);
                 this.sendSocketNotification("ERROR", error);
             }
         });
