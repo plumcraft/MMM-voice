@@ -1,22 +1,22 @@
-@-webkit-keyframes MMM-voice-pulse {
+@-webkit-keyframes mmm-voice-pulse {
     0% {color: #999999;}
     50% {color: #000000;}
     100% {color: #999999;}
 }
 
-.MMM-voice .pulse {
-    -webkit-animation: MMM-voice-pulse 1s infinite;
+.mmm-voice .pulse {
+    -webkit-animation: mmm-voice-pulse 1s infinite;
 }
 
-.MMM-voice .icon {
+.mmm-voice .icon {
     margin-right: 5px;
 }
 
-.MMM-voice-blur {
+.mmm-voice-blur {
     -webkit-filter: blur(2px) brightness(50%);
 }
 
-.MMM-voice .modal {
+.mmm-voice .modal {
     position: fixed;
     text-align: left;
     left: 50%;
@@ -24,6 +24,6 @@
     -webkit-transform: translate(-50%, -50%);
 }
 
-.MMM-voice .modal ul {
+.mmm-voice .modal ul {
     margin: 0px;
 }
